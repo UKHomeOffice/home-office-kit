@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Add another – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Add another template
+      </h1>
+
+      <form class="form" action="/url/of/next/page" method="post">
+  
+        <div id="names-div">
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="event-name">
+              Name
+            </label>
+            <input class="govuk-input" id="name-1" name="names[1]" type="text" value>
+          </div>
+        </div>
+
+        <div id="add-another-button">
+          <button type="button" type="button" class="govuk-button" data-module="govuk-button">
+            Add another name
+          </button>
+        </div>
+      
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+    </div>
+  </div>
+
+{% endblock %}
+
+
+{% block pageScripts %}
+  <script>
+    var newNameId = 2;
+    var addAnotherButton = document.getElementById('add-another-button');
+    var names = document.getElementById("names-div");
+
+    var stringToHTML = function (str) {
+      var parser = new DOMParser();
+      var doc = parser.parseFromString(str, 'text/html');
+      return doc.body.firstChild;
+    };
+
+    addAnotherButton.onclick = function () {
+      var s = stringToHTML(`
+      <div class='govuk-form-group'>
+        <label class="govuk-label" for='name-${newNameId}'>
+            Name
+          </label>
+        <input class="govuk-input" id='name-${newNameId}' name='names[${newNameId}]' type='text'>
+      </div>
+      `);
+
+      names.appendChild(s);
+      document.getElementById("name-"+newNameId).focus();
+      newNameId++;
+    };
+  </script>
+{% endblock %}
+    

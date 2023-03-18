@@ -1,0 +1,25 @@
+{
+  "nunjucksFilters": [
+
+  ],
+  "sass": [
+    "/sass/all.scss"
+  ],
+  "templates": [
+    {
+      "name": "Add another",
+      "path": "/templates/add-another.html",
+      "type": "nunjucks"
+    },
+    {
+      "name": "Home Office layout",
+      "path": "/templates/home-office-layout.html",
+      "type": "nunjucks"
+    },
+    {
+      "name": "Show password",
+      "path": "/templates/show-password.html",
+      "type": "nunjucks"
+    }
+  ]
+}
