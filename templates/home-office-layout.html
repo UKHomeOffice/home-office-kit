@@ -100,10 +100,11 @@
 <h1 class="govuk-heading-l">Home Office layout</h1>
 <p class="govuk-body">To use this layout throughout your prototype:</p>
 <ol class="govuk-list govuk-list--number">
-  <li><a href="install?package=home-office-kit-plugin&template=%2Ftemplates%2Fhome-office-layout.html">Create a new main page</a></li>
+  <li><a href="install?package=home-office-kit&template=%2Ftemplates%2Fhome-office-layout.html">Create a new main page</a></li>
   <li>Enter main as the page name</li>
   <li>In your code editor, replace <strong>app/views/layouts/main.html</strong> with the new file <strong>app/views/main.html</strong></li>
   <li>In <strong>app/sass</strong> create <strong>settings.scss</strong> with <strong>@import "home-office-kit/settings"</strong>
+  <li>In <strong>app/routes.js</strong> add <strong>require('home-office-kit/routes/all.js)</strong></li>
 </ol>
 {% endblock %}
 
