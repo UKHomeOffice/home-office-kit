@@ -1,6 +1,9 @@
 {
+  "assets": [
+    "/assets"
+  ],
   "nunjucksFilters": [
-
+    "/filters/all.js"
   ],
   "sass": [
     "/sass/all.scss"
