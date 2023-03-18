@@ -43,4 +43,6 @@ There are some useful filters that are included automatically when you install t
 
 ## Font
 
+In `app/assets/sass` create `settings.scss` and add `@import "node_modules/home-office-kit/sass/settings"`
+
 This changes your font from GDS Transport to Roboto, the font used in the Home Office design system.
