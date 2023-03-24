@@ -8,6 +8,9 @@
   "sass": [
     "/sass/all.scss"
   ],
+  "scripts": [
+    "/assets/prototype.js"
+  ],
   "templates": [
     {
       "name": "Add another",
