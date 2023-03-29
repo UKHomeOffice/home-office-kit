@@ -31,7 +31,7 @@ const { addFilter } = require('govuk-prototype-kit').views
 
 ------------------------------------------------------------------ */
 
-addFilter('toMonth', function(x){
+addFilter('homeOfficeKit.toMonth', function(x){
   months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   if (x > 0){ return months[x - 1]; // returns date as per month
   } else {
@@ -48,7 +48,7 @@ addFilter('toMonth', function(x){
 
     "passenger" + numberPassengers | pluralise('','s')
   ------------------------------------------------------------------ */
-addFilter('pluralise', function(number, singular, plural){
+addFilter('homeOfficeKit.pluralise', function(number, singular, plural){
   if (number === 1 || number === '1')
   {
     return singular;
@@ -66,7 +66,7 @@ addFilter('pluralise', function(number, singular, plural){
   Code example
     {{ personName | possessive }}
   ------------------------------------------------------------------ */
-addFilter('possessive', function(noun){
+addFilter('homeOfficeKit.possessive', function(noun){
   if (noun) {
     if (noun.charAt(noun.length - 1) === 's')
     {
@@ -89,7 +89,7 @@ addFilter('possessive', function(noun){
   Code example - for showing default checked on checkboxes
   {{ "checked" if data["myDataArray"] | inArray("String to search in array") }}
   ------------------------------------------------------------------ */
-addFilter('inArray', function(array, value){
+addFilter('homeOfficeKit.inArray', function(array, value){
   if(array == undefined){
     // No array has been defined, exit the function.
     return false;
@@ -118,7 +118,7 @@ addFilter('inArray', function(array, value){
   Code example
     {{ data['event-time-hour'] | padZeros }}
   ------------------------------------------------------------------ */
-addFilter('homeOffice.padZero', function(digit){
+addFilter('homeOfficeKit.padZero', function(digit){
   if (digit.length == 1) {
     return `0${digit}`
   } else {
