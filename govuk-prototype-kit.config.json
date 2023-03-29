@@ -6,7 +6,8 @@
     "/layouts"
   ],
   "nunjucksFilters": [
-    "/filters/all.js"
+    "/filters/all.js",
+    "/routes/all.js"
   ],
   "sass": [
     "/sass/all.scss"
