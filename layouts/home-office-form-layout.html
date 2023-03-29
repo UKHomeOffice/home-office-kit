@@ -1,0 +1,59 @@
+{% extends "home-office-layout.html" %}
+
+{% block pageTitle %}
+  {% set pageTitle = pageTitle or pageHeading %}
+  {% if errorList %}
+      {% set pageTitle = "Error: " + pageTitle %}
+  {% endif %}
+  {{ pageTitle }} - {{ serviceName }} - {{ platformName or "Home Office plugin GOV.UK prototype kit"}}
+{% endblock %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: backLinkURL or "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- An example of errors can be found in mandatory declarations prototype
+           errors are not yet part of this template. -->
+      {% if errorList %}
+        {{ govukErrorSummary({
+          "titleText": "There is a problem",
+          "errorList": errorList
+        }) }}
+      {% endif %}
+
+      {% if pageHeading %}
+        <h1 class="govuk-heading-l">
+          {{ pageHeading }}
+        </h1>
+      {% endif %}
+
+      <form id="form-next" class="form" action="{{ nextPage or (pageURL + '-route')}}" method="post" novalidate>
+          {% block pageContent %}
+            <p>Override this content</p>
+          {% endblock %}
+
+          {% block buttons %}
+            <div class="govuk-button-group">
+              {% if useSubmitButton %}
+                {% set primaryButtonText = "Submit" %}
+              {% endif %}
+              <button class="govuk-button" data-module="hods-button">
+                {{ primaryButtonText or "Save and continue" }}
+              </button>
+              {% if secondaryButtonText %}
+                <button class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction={{ secondaryButtonFormAction or "#" }}>
+                  {{ secondaryButtonText }}
+                </button>
+              {% endif %}
+            </div>
+          {% endblock %}
+      </form>
+    </div>
+  </div>
+{% endblock %}

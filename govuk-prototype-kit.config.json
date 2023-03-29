@@ -2,6 +2,9 @@
   "assets": [
     "/assets"
   ],
+  "nunjucksPaths":[
+    "/layouts"
+  ],
   "nunjucksFilters": [
     "/filters/all.js"
   ],
@@ -10,13 +13,18 @@
   ],
   "templates": [
     {
+      "name": "Blank Home Office page",
+      "path": "/templates/home-office-blank.html",
+      "type": "nunjucks"
+    },
+    {
       "name": "Add another",
       "path": "/templates/add-another.html",
       "type": "nunjucks"
     },
     {
-      "name": "Home Office layout",
-      "path": "/templates/home-office-layout.html",
+      "name": "Question page",
+      "path": "/templates/question-page-blank.html",
       "type": "nunjucks"
     },
     {
@@ -24,5 +32,8 @@
       "path": "/templates/show-password.html",
       "type": "nunjucks"
     }
+  ],
+  "importNunjucksMacrosInto": [
+    "/layouts/home-office-layout.html"
   ]
 }

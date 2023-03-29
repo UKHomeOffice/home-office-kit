@@ -1,13 +1,13 @@
 {
   "name": "home-office-kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Home Office plugin for GOV.UK prototype kit",
   "author": "Home Office Design System",
   "license": "MIT",
   "sass": "sass/all.scss",
   "repository": {
     "type": "git",
-    "url": "git+https://https://github.com/UKHomeOffice/home-office-kit"
+    "url": "https://https://github.com/UKHomeOffice/home-office-kit"
   },
   "bugs": {
     "url": "https://github.com/UKHomeOffice/home-office-kit/issues"

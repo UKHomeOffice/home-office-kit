@@ -3,13 +3,13 @@
 {% extends "govuk/template.njk" %}
 
 {% block headIcons %}
-  <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/public/images/ho-favicon.ico" type="image/x-icon">
-  <link rel="mask-icon" href="/public/images/ho-mask-icon.svg" color="{{ themeColor | default('#0b0c0c') }}"> {# Hardcoded
+  <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/plugin-assets/home-office-kit/assets/images/ho-favicon.ico" type="image/x-icon">
+  <link rel="mask-icon" href="/plugin-assets/home-office-kit/assets/images/ho-mask-icon.svg" color="{{ themeColor | default('#0b0c0c') }}"> {# Hardcoded
   value of $govuk-black #}
-  <link rel="apple-touch-icon" sizes="180x180" href="public/images/ho-apple-touch-icon-180x180.png">
-  <link rel="apple-touch-icon" sizes="167x167" href="public/images/ho-apple-touch-icon-167x167.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="public/images/ho-apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" href="public/images/ho-apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/plugin-assets/home-office-kit/assets/images/ho-apple-touch-icon-180x180.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="/plugin-assets/home-office-kit/assets/images/ho-apple-touch-icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/plugin-assets/home-office-kit/assets/images/ho-apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" href="/plugin-assets/home-office-kit/assets/images/ho-apple-touch-icon.png">
 {% endblock %}
 
 {% block head %}
@@ -94,18 +94,18 @@
   </header>
 {% endblock %}
 
+{% block beforeContent %} 
+
+  {% block backLink %}
+
+  {% endblock %}
+
+{% endblock %}
+
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 
 {% block content %}
-<h1 class="govuk-heading-l">Home Office layout</h1>
-<p class="govuk-body">To use this layout throughout your prototype:</p>
-<ol class="govuk-list govuk-list--number">
-  <li><a href="install?package=home-office-kit&template=%2Ftemplates%2Fhome-office-layout.html">Create a new main page</a></li>
-  <li>Enter main as the page name</li>
-  <li>In your code editor, replace <strong>app/views/layouts/main.html</strong> with the new file <strong>app/views/main.html</strong></li>
-  <li>In <strong>app/sass</strong> create <strong>settings.scss</strong> with <strong>@import "node_modules/home-office-kit/sass/settings"</strong>
-  <li>In <strong>app/routes.js</strong> add <strong>require('home-office-kit/routes/all.js)</strong></li>
-</ol>
+
 {% endblock %}
 
 {% block footer %}

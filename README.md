@@ -25,9 +25,7 @@ You can use the HTML for these Home Office design system components:
 
 ## Routes
 
-To use some helpful routes in your prototype, add `require('home-office-kit/routes/all.js')` to your `app/routes.js` file.
-
-This includes:
+There are some useful routes in the prototype:
 
 * logging data from the prototype
 * redirecting radio buttons

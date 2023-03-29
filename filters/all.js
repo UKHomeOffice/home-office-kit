@@ -38,11 +38,6 @@ addFilter('toMonth', function(x){
     return x ;
   }})
     
-addFilter(toMoney = function(x){  return("£" + x );
-  
-  //TO ADD - case to handle nothing being there   
-  })
-
 /* ----------------------------------------------------------------
   Allows you to pluralise nouns.
 
@@ -123,7 +118,7 @@ addFilter('inArray', function(array, value){
   Code example
     {{ data['event-time-hour'] | padZeros }}
   ------------------------------------------------------------------ */
-addFilter('padZero', function(digit){
+addFilter('homeOffice.padZero', function(digit){
   if (digit.length == 1) {
     return `0${digit}`
   } else {

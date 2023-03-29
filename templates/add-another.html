@@ -1,43 +1,22 @@
-{% extends "layouts/main.html" %}
+{% extends "home-office-form-layout.html" %}
 
-{% block pageTitle %}
-  Add another – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
+{% set pageHeading = "Add another" %}
 
-{% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
-{% endblock %}
+{% block pageContent %}
 
-{% block content %}
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-
-      <h1 class="govuk-heading-l">
-        Add another template
-      </h1>
-
-      <form class="form" action="/url/of/next/page" method="post">
-  
-        <div id="names-div">
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="event-name">
-              Name
-            </label>
-            <input class="govuk-input" id="name-1" name="names[1]" type="text" value>
-          </div>
-        </div>
-
-        <div id="add-another-button">
-          <button type="button" type="button" class="govuk-button" data-module="govuk-button">
-            Add another name
-          </button>
-        </div>
-      
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
-
-      </form>
+  <div id="home-office-kit-add-another-container">
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="event-name">
+        Name
+      </label>
+      <input class="govuk-input" id="name-1" name="names[1]" type="text" value>
     </div>
+  </div>
+
+  <div id="home-office-kit-add-another-button">
+    <button type="button" type="button" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      Add another name
+    </button>
   </div>
 
 {% endblock %}
@@ -46,8 +25,8 @@
 {% block pageScripts %}
   <script>
     var newNameId = 2;
-    var addAnotherButton = document.getElementById('add-another-button');
-    var names = document.getElementById("names-div");
+    var addAnotherButton = document.getElementById('home-office-kit-add-another-button');
+    var names = document.getElementById("home-office-kit-add-another-container");
 
     var stringToHTML = function (str) {
       var parser = new DOMParser();
