@@ -7,6 +7,16 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 const config = require('govuk-prototype-kit/lib/config')
 
+// Finds the current page URL and stores so can be used as the default next page route
+router.all('*', function (req, res, next){
+  if (!res.locals.homeOfficeKit) {
+    res.locals.homeOfficeKit = {}
+  }
+  const urlParts = req.url.split('/')
+  res.locals.homeOfficeKit.pageURL = urlParts[urlParts.length - 1]
+  next()
+})
+
 // Stores the date to be used on HTML pages.
 // This code is run for all requests.
 router.get('*', function (req, res, next) {
@@ -19,7 +29,7 @@ router.get('*', function (req, res, next) {
   // {{ date({day: 'numeric'}) }} shows the just the date of date 5
   // {{ date({day: 'numeric'}, {'day': -1}) }} shows just the date of yesterday
   // {{ date({weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}) }} shows todays date in the format Tuesday, 5 July 2022.
-  res.locals.date = function (
+  res.locals.homeOfficeKit.date = function (
     format = {day: 'numeric', month: 'long', year: 'numeric'},
     diff = {'year': 0, 'month': 0, 'day': 0})
     {
@@ -44,7 +54,7 @@ router.get('*', function (req, res, next) {
   // {{ today.day }} shows just todays day
   // {{ today.month }} shows just todays month as a number
   // {{ today.year }} shows just todays year as a number
-  res.locals.today = {"day": res.locals.date({'day': 'numeric'}),
+  res.locals.homeOfficeKit.today = {"day": res.locals.date({'day': 'numeric'}),
           "month": res.locals.date({'month': 'numeric'}),
           "year": res.locals.date({'year': 'numeric'})}
 
@@ -56,7 +66,7 @@ router.get('*', function (req, res, next) {
   // {{ yesterday.day }} shows just todays day
   // {{ yesterday.month }} shows just todays month as a number
   // {{ yesterday.year }} shows just todays year as a number
-  res.locals.yesterday = {"day": res.locals.date({'day': 'numeric'}, diff = {'day': -1}),
+  res.locals.homeOfficeKit.yesterday = {"day": res.locals.date({'day': 'numeric'}, diff = {'day': -1}),
             "month": res.locals.date({'month': 'numeric'}, diff = {'day': -1}),
             "year": res.locals.date({'year': 'numeric'}, diff = {'day': -1})}
 
@@ -91,8 +101,10 @@ router.post('*', function(req, res, next) {
 // If this is not desired, remove or comment out this function.
 router.all('*', function (req, res, next) {
   if (config.getConfig().isDevelopment) {
-    console.log(`${req.method}: ${req.url}`)
-    console.log(req.session.data)
+    if (!(req.url.startsWith("/plugin-assets/") || req.url.startsWith("/public/"))) {
+      console.log(`${req.method}: ${req.url}`)
+      console.log(req.session.data)
+    }
   }
   next()
 })

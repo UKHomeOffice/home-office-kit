@@ -1,34 +1,39 @@
-{% extends "home-office-form-layout.html" %}
+{% extends "home-office-kit-form-layout.html" %}
+
+<!-- This chooses the styling for the form layout.
+For your main layout set to "layouts/main.html"
+For GOV.UK layout set to "govuk-prototype-kit/layouts/govuk-branded.html" -->
+{% set homeOfficeKit_formLayout = "home-office-kit-layout.html" %}
 
 <!-- This makes a H1 with the pageHeading text. It also sets the title of the
 page. -->
-{% set pageHeading = "Heading level 1 and page title" %}
+{% set homeOfficeKit_pageHeading = "Heading level 1 and page title" %}
 
 <!-- If you have a single question on the page, and the heading 1 is part of the
 component, then set pageTitle instead. -->
-{% set pageTitle = "Just the page title" %}
+{% set homeOfficeKit_pageTitle = "Just the page title" %}
 
-<!-- nextPage sets where the save and continue button goes. By default the save
-and continue button just add '-route' to the end of the URL path. This can then
+<!-- homeOfficeKit_nextPage sets where the save and continue button goes. By default the save
+and continue button just adds '-route' to the end of the URL path. This can then
 be picked up in the _routes.js file.
 
 To override this just set the nextPage variable
-{# {% set nextPage = "check-answers" %} #} -->
+{# {% set homeOfficeKit_nextPage = "check-answers" %} #} -->
 
 <!-- If true, has a submit button instead of save and continue -->
-{% set useSubmitButton = false %}
+{% set homeOfficeKit_useSubmitButton = false %}
 
 <!-- To change the primary button text, set primaryButtonText. By default it
 shows "Save and continue" -->
-{% set primaryButtonText = "" %}
+{% set homeOfficeKit_primaryButtonText = "" %}
 
 <!-- To add a secondary button, set secondaryButtonText. By default there is
 not one. -->
-{% set secondaryButtonText = "" %}
+{% set homeOfficeKit_secondaryButtonText = "" %}
 
 <!-- If you have a secondary button, define secondaryButtonText to define where
 the button should go (the formaction attribute). -->
-{% set secondaryButtonFormAction = "" %}
+{% set homeOfficeKit_secondaryButtonFormAction = "" %}
 
 <!-- {#
   Override styles on this page and this page only, using the pageStyle block.
@@ -64,14 +69,14 @@ stylesheets are used.
 #} -->
 
 <!-- The content between the heading 1 and the buttons -->
-{% block pageContent %}
+{% block homeOfficeKit_pageContent %}
   <p class="govuk-body">Replace this content.</p>
 {% endblock %}
 
 <!-- {#
   If you want to remove the buttons completely, add a blank buttons block.
   If you would like different buttons, add your buttons to this block.
-  {% block buttons %}
+  {% block homeOfficeKit_buttons %}
 
   {% endblock %}
 #} -->
