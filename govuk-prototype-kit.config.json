@@ -35,6 +35,6 @@
     }
   ],
   "importNunjucksMacrosInto": [
-    "/layouts/home-office-layout.html"
+    "/layouts/home-office-kit-layout.html"
   ]
 }
