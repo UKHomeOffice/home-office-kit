@@ -35,11 +35,17 @@ There are some useful routes in the prototype:
 
 There are some useful filters that are included automatically when you install the plugin. These include:
 
-* possessive - adding `'s` or `'`
-* toMonth - change `1` to `Jan` and so on
-* padZero - adds a zero to single digits, change `1` to `01`
+* homeOfficeKit.possessive - adding `'s` or `'`
+* homeOfficeKit.toMonth - change `1` to `Jan` and so on
+* homeOfficeKit.padZero - adds a zero to single digits, change `1` to `01`
 
-## Font
+## Styling
+
+### Header, footer and page background
+To change your prototype to by default use the Home Office styling:
+1. In `app/views/layouts/main.html` change `{% extends "govuk-prototype-kit/layouts/main.html %}` to `{% extends "home-office-kit-layout.html" %}`
+
+### Font
 
 In `app/assets/sass` create `settings.scss` and add `@import "node_modules/home-office-kit/sass/settings"`
 

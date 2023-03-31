@@ -1,6 +1,6 @@
 {%- set assetPath = '/plugin-assets/govuk-frontend/govuk/assets' -%}
 
-{% extends "govuk/template.njk" %}
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
 {% block headIcons %}
   <link rel="shortcut icon" sizes="16x16 32x32 48x48" href="/plugin-assets/home-office-kit/assets/images/ho-favicon.ico" type="image/x-icon">
@@ -17,10 +17,6 @@
   {% block stylesheets %}
     {% include "govuk-prototype-kit/includes/stylesheets.html" %}
   {% endblock %}
-{% endblock %}
-
-{% block pageTitle %}
-  GOV.UK Prototype Kit
 {% endblock %}
 
 {% block header %}

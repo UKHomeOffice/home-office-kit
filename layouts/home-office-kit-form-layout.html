@@ -1,17 +1,17 @@
-{% extends homeOfficeKit_formLayout or "home-office-kit-layout.html" %}
+{% extends homeOfficeKit_formLayout or "layouts/main.html" %}
 
 {% block pageTitle %}
-  {% set homeOfficeKit_pageTitle = homeOfficeKit_pageTitle or homeOfficeKit_pageHeading %}
+  {% set pageName = pageName or homeOfficeKit_pageHeading %}
   {% if homeOfficeKit_errorList %}
-      {% set homeOfficeKit_pageTitle = "Error: " + homeOfficeKit_pageTitle %}
+      {% set pageName = "Error: " + pageName %}
   {% endif %}
-  {{ homeOfficeKit_pageTitle }} - {{ serviceName }} - {{ homeOfficeKit_platformName or "Home Office plugin GOV.UK prototype kit"}}
+  {% if pageName %}{{ pageName }} - {% endif %}{{ serviceName }} - {{ homeOfficeKit_platformName or "GOV.UK"}}
 {% endblock %}
 
 {% block backLink %}
   {{ govukBackLink({
     text: "Back",
-    href: backLinkURL or "javascript:window.history.back()"
+    href: homeOfficeKit_backLinkURL or "javascript:window.history.back()"
   }) }}
 {% endblock %}
 
@@ -27,11 +27,19 @@
         }) }}
       {% endif %}
 
+      {% block homeOfficeKit_beforePageHeading %}
+
+      {% endblock %}
+
       {% if homeOfficeKit_pageHeading %}
         <h1 class="govuk-heading-l">
           {{ homeOfficeKit_pageHeading }}
         </h1>
       {% endif %}
+
+      {% block homeOfficeKit_afterPageHeading %}
+
+      {% endblock %}
 
       <form id="form-next" class="form" action="{{ homeOfficeKit_nextPage or (homeOfficeKit.pageURL + '-route')}}" method="post" novalidate>
           {% block homeOfficeKit_pageContent %}
