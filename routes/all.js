@@ -7,6 +7,19 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 const config = require('govuk-prototype-kit/lib/config')
 
+// When in development print the URL link and the data stored in the prototype into terminal.
+// This is not logged in Heroku or anywhere where the prototype is published.
+// If this is not desired, remove or comment out this function.
+router.all('*', function (req, res, next) {
+  if (config.getConfig().isDevelopment) {
+    if (!(req.url.startsWith("/plugin-assets/") || req.url.startsWith("/public/"))) {
+      console.log(`${req.method}: ${req.url}`)
+      console.log(req.session.data)
+    }
+  }
+  next()
+})
+
 // Finds the current page URL and stores so can be used as the default next page route
 router.all('*', function (req, res, next){
   if (!res.locals.homeOfficeKit) {
@@ -54,9 +67,9 @@ router.get('*', function (req, res, next) {
   // {{ today.day }} shows just todays day
   // {{ today.month }} shows just todays month as a number
   // {{ today.year }} shows just todays year as a number
-  res.locals.homeOfficeKit.today = {"day": res.locals.date({'day': 'numeric'}),
-          "month": res.locals.date({'month': 'numeric'}),
-          "year": res.locals.date({'year': 'numeric'})}
+  res.locals.homeOfficeKit.today = {"day": res.locals.homeOfficeKit.date({'day': 'numeric'}),
+          "month": res.locals.homeOfficeKit.date({'month': 'numeric'}),
+          "year": res.locals.homeOfficeKit.date({'year': 'numeric'})}
 
 
   // Examples of yesterday
@@ -66,9 +79,9 @@ router.get('*', function (req, res, next) {
   // {{ yesterday.day }} shows just todays day
   // {{ yesterday.month }} shows just todays month as a number
   // {{ yesterday.year }} shows just todays year as a number
-  res.locals.homeOfficeKit.yesterday = {"day": res.locals.date({'day': 'numeric'}, diff = {'day': -1}),
-            "month": res.locals.date({'month': 'numeric'}, diff = {'day': -1}),
-            "year": res.locals.date({'year': 'numeric'}, diff = {'day': -1})}
+  res.locals.homeOfficeKit.yesterday = {"day": res.locals.homeOfficeKit.date({'day': 'numeric'}, diff = {'day': -1}),
+            "month": res.locals.homeOfficeKit.date({'month': 'numeric'}, diff = {'day': -1}),
+            "year": res.locals.homeOfficeKit.date({'year': 'numeric'}, diff = {'day': -1})}
 
   // The next function means continue looking for other matching routes
   next()
@@ -94,17 +107,4 @@ router.post('*', function(req, res, next) {
     }
   }
   next();
-})
-
-// When in development print the URL link and the data stored in the prototype into terminal.
-// This is not logged in Heroku or anywhere where the prototype is published.
-// If this is not desired, remove or comment out this function.
-router.all('*', function (req, res, next) {
-  if (config.getConfig().isDevelopment) {
-    if (!(req.url.startsWith("/plugin-assets/") || req.url.startsWith("/public/"))) {
-      console.log(`${req.method}: ${req.url}`)
-      console.log(req.session.data)
-    }
-  }
-  next()
 })
