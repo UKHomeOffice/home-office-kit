@@ -33,7 +33,7 @@
         </h1>
       {% endif %}
 
-      <form id="form-next" class="form" action="{{ homeOfficeKit_nextPage or (pageURL + '-route')}}" method="post" novalidate>
+      <form id="form-next" class="form" action="{{ homeOfficeKit_nextPage or (homeOfficeKit.pageURL + '-route')}}" method="post" novalidate>
           {% block homeOfficeKit_pageContent %}
             <p>Override this content</p>
           {% endblock %}
