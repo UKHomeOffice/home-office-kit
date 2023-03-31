@@ -1,0 +1,59 @@
+{% extends homeOfficeKit_formLayout or "home-office-kit-layout.html" %}
+
+{% block pageTitle %}
+  {% set homeOfficeKit_pageTitle = homeOfficeKit_pageTitle or homeOfficeKit_pageHeading %}
+  {% if homeOfficeKit_errorList %}
+      {% set homeOfficeKit_pageTitle = "Error: " + homeOfficeKit_pageTitle %}
+  {% endif %}
+  {{ homeOfficeKit_pageTitle }} - {{ serviceName }} - {{ homeOfficeKit_platformName or "Home Office plugin GOV.UK prototype kit"}}
+{% endblock %}
+
+{% block backLink %}
+  {{ govukBackLink({
+    text: "Back",
+    href: backLinkURL or "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <!-- An example of errors can be found in mandatory declarations prototype
+           errors are not yet part of this template. -->
+      {% if homeOfficeKit_errorList %}
+        {{ govukErrorSummary({
+          "titleText": "There is a problem",
+          "errorList": homeOfficeKit_errorList
+        }) }}
+      {% endif %}
+
+      {% if homeOfficeKit_pageHeading %}
+        <h1 class="govuk-heading-l">
+          {{ homeOfficeKit_pageHeading }}
+        </h1>
+      {% endif %}
+
+      <form id="form-next" class="form" action="{{ homeOfficeKit_nextPage or (pageURL + '-route')}}" method="post" novalidate>
+          {% block homeOfficeKit_pageContent %}
+            <p>Override this content</p>
+          {% endblock %}
+
+          {% block homeOfficeKit_buttons %}
+            <div class="govuk-button-group">
+              {% if homeOfficeKit_useSubmitButton %}
+                {% set homeOfficeKit_primaryButtonText = "Submit" %}
+              {% endif %}
+              <button class="govuk-button" data-module="hods-button">
+                {{ homeOfficeKit_primaryButtonText or "Save and continue" }}
+              </button>
+              {% if homeOfficeKit_secondaryButtonText %}
+                <button class="govuk-button govuk-button--secondary" data-module="govuk-button" formaction={{ homeOfficeKit_secondaryButtonFormAction or "#" }}>
+                  {{ homeOfficeKit_secondaryButtonText }}
+                </button>
+              {% endif %}
+            </div>
+          {% endblock %}
+      </form>
+    </div>
+  </div>
+{% endblock %}
