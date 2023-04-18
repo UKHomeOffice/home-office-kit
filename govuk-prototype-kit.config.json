@@ -12,6 +12,9 @@
   "sass": [
     "/sass/all.scss"
   ],
+  "scripts": [
+    "/assets/prototype.js"
+  ],
   "templates": [
     {
       "name": "Blank Home Office page",
