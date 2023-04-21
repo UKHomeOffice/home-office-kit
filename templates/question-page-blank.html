@@ -40,7 +40,7 @@ the button should go (the formaction attribute). -->
   Override styles on this page and this page only, using the pageStyle block.
   The contents of the block should be plain css, as the <style> tag is included in
   the template.
-  {% block pageStyle %}
+  {% block homeOfficeKit_style %}
     .record-item-input-box {
       width: 40%;
     }
@@ -49,14 +49,6 @@ the button should go (the formaction attribute). -->
     }
   {% endblock %}
 #} -->
-
-<!-- {# Override styles on this page and this page only using the stylesheet variable. 
-This is a list of names of .css files.
-
-Once you've run 'npm run dev' which compiles the .scss files in the /app/assets/sass folder 
-into .css files in the /public/stylesheets folder. It's in this folder that these
-stylesheets are used.
-{% set stylesheets = ["green"] %} #} -->
 
 <!-- {#
   To just change the link URL for the back link:
