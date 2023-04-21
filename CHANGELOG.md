@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 0.7.0
+
 ### Features
 
 * started the change log
