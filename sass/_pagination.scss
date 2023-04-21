@@ -1,43 +1,50 @@
+// Retrieved on 21 April 2023 from Home Office design system (https://github.com/UKHomeOffice/design-system/blob/fd1fedb90832c451e1ba9616f05f6ae109e6ed16/components/pagination/assets/Pagination.scss)
+
 .hods-pagination {
-
-  &__summary {
-    @include govuk-font(16);
-    @include govuk-responsive-padding(2, "bottom");
-    @include govuk-responsive-padding(2, "top");;
-    float: right;
-  }
-
-  &__item {
-    display: inline-block;
-  }
-
-  &__link {
-    @include govuk-font(16);
-    @include govuk-responsive-padding(1, "bottom");
-    @include govuk-responsive-padding(1, "top");
-    @include govuk-responsive-padding(2, "left");
-    @include govuk-responsive-padding(2, "right");
-    text-decoration: none;
-
-    &:hover, &:focus {
+  &__navigation {
+    &__summary {
       @include govuk-font(16);
-      outline: 3px solid govuk-colour("yellow");
+      @include govuk-responsive-padding(2, "bottom");
+      @include govuk-responsive-padding(2, "top");;
+      float: right;
     }
 
-    &--current {
+    &__item {
+      display: inline-block;
+    }
+
+    &__link {
       @include govuk-font(16);
       @include govuk-responsive-padding(1, "bottom");
       @include govuk-responsive-padding(1, "top");
       @include govuk-responsive-padding(2, "left");
       @include govuk-responsive-padding(2, "right");
-      font-weight: bold;
-      border: none;
-      pointer-events: none;
-      cursor: default;
+      text-decoration: none;
 
-      &:link, &:visited {
-        color: black
+      &:hover, &:focus {
+        @include govuk-font(16);
+        outline: 3px solid govuk-colour("yellow");
+      }
+
+      &--current {
+        @include govuk-font(16);
+        @include govuk-responsive-padding(1, "bottom");
+        @include govuk-responsive-padding(1, "top");
+        @include govuk-responsive-padding(2, "left");
+        @include govuk-responsive-padding(2, "right");
+        font-weight: bold;
+        border: none;
+        pointer-events: none;
+        cursor: default;
+
+        &:link,
+        &:visited,
+        &.govuk-link:link,
+        &.govuk-link:visited {
+          color: black
+        }
       }
     }
   }
 }
+
