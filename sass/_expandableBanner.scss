@@ -1,3 +1,5 @@
+// Retrieved on 21 April 2023 from Home Office design system (https://github.com/UKHomeOffice/design-system/blob/fd1fedb90832c451e1ba9616f05f6ae109e6ed16/components/expandable-banner/assets/ExpandableBanner.scss)
+
 .hods-expandable-banner {
   @include govuk-responsive-padding(2, "top");
   @include govuk-responsive-padding(2, "bottom");
@@ -17,6 +19,7 @@
   }
 
   &__summary {
+    @extend .govuk-details__summary; // Change: Added in extend to include the triangle styling part of the GOV.UK component
     @include govuk-font(19, 'bold');
     color: govuk-colour("white");
     display: block;

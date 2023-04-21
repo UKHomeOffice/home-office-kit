@@ -24,6 +24,11 @@
       "type": "nunjucks"
     },
     {
+      "name": "Pagination",
+      "path": "/templates/pagination.html",
+      "type": "nunjucks"
+    },
+    {
       "name": "Question page",
       "path": "/templates/question-page-blank.html",
       "type": "nunjucks"
