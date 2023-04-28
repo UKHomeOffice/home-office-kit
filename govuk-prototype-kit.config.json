@@ -19,6 +19,11 @@
       "type": "nunjucks"
     },
     {
+      "name": "Accordion (legacy)",
+      "path": "/templates/legacy-accordion.html",
+      "type": "nunjucks"
+    },
+    {
       "name": "Add another",
       "path": "/templates/add-another.html",
       "type": "nunjucks"
