@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+* added accordion template that looks like the old GOV.UK frontend v3.14.0 accordion
+
 ## 0.7.0
 
 ### Features
