@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.9.0
 
 * added homeOfficeKitLegacyAccordion macro for the old GOV.UK frontend v3.14.0 accordion
 * now allows in the config.json to turn off data logging, by:
