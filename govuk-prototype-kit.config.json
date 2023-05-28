@@ -12,7 +12,7 @@
   ],
   "nunjucksMacros": [
     {
-      "importFrom": "legacy-accordion.njk",
+      "importFrom": "home-office-kit-legacy-accordion.njk",
       "macroName": "homeOfficeKitLegacyAccordion"
     }
   ],
