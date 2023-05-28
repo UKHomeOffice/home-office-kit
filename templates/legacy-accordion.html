@@ -15,59 +15,42 @@ The <style> tage is already included. -->
 <p class="govuk-body">It looks like the GOV.UK frontend Accordion v3.14, but works with future version of GOV.UK frontend.</p>
 <p class="govuk-body">It allows designers to use the up to date GOV.UK prototype kit, with an older visual style of the accordion (which their service may still be using).</p>
 
-<div class="govuk-accordion govuk-accordion--home-office-kit-legacy" data-module="govuk-accordion" id="accordion-default"  data-i18n.show-all-sections='Open all' data-i18n.hide-all-sections='Close all'>
-  <div class="govuk-accordion__section">
-    <div class="govuk-accordion__section-header">
-      <h2 class="govuk-accordion__section-heading">
-        <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-          Writing well for the web
-        </span>
-      </h2>
-      <span class="govuk-accordion__icon"></span>
-    </div>
-    <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
-      <p class='govuk-body'>This is the content for Writing well for the web.</p>
-    </div>
-  </div>
-  <div class="govuk-accordion__section">
-    <div class="govuk-accordion__section-header">
-      <h2 class="govuk-accordion__section-heading">
-        <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
-          Writing well for specialists
-        </span>
-      </h2>
-      <span class="govuk-accordion__icon"></span>
-    </div>
-    <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
-      <p class='govuk-body'>This is the content for Writing well for specialists.</p>
-    </div>
-  </div>
-  <div class="govuk-accordion__section">
-    <div class="govuk-accordion__section-header">
-      <h2 class="govuk-accordion__section-heading">
-        <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
-          Know your audience
-        </span>
-      </h2>
-      <span class="govuk-accordion__icon"></span>
-    </div>
-    <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
-      <p class='govuk-body'>This is the content for Know your audience.</p>
-    </div>
-  </div>
-  <div class="govuk-accordion__section">
-    <div class="govuk-accordion__section-header">
-      <h2 class="govuk-accordion__section-heading">
-        <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
-          How people read
-        </span>
-      </h2>
-      <span class="govuk-accordion__icon"></span>
-    </div>
-    <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
-      <p class='govuk-body'>This is the content for How people read.</p>
-    </div>
-  </div>
-</div>
+{{ homeOfficeKitLegacyAccordion({
+  id: "accordion-default",
+  items: [
+    {
+      heading: {
+        text: "Writing well for the web"
+      },
+      content: {
+        html: "<p class='govuk-body'>This is the content for Writing well for the web.</p>"
+      }
+    },
+    {
+      heading: {
+        text: "Writing well for specialists"
+      },
+      content: {
+        html: "<p class='govuk-body'>This is the content for Writing well for specialists.</p>"
+      }
+    },
+    {
+      heading: {
+        text: "Know your audience"
+      },
+      content: {
+        html: "<p class='govuk-body'>This is the content for Know your audience.</p>"
+      }
+    },
+    {
+      heading: {
+        text: "How people read"
+      },
+      content: {
+        html: "<p class='govuk-body'>This is the content for How people read.</p>"
+      }
+    }
+  ]
+ })}}
 
 {% endblock %}

@@ -5,13 +5,16 @@
 
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
-const config = require('govuk-prototype-kit/lib/config')
+const config = require('../lib/config')
 
 // When in development print the URL link and the data stored in the prototype into terminal.
 // This is not logged in Heroku or anywhere where the prototype is published.
 // If this is not desired, remove or comment out this function.
 router.all('*', function (req, res, next) {
-  if (config.getConfig().isDevelopment) {
+  prototypeConfig = config.getHomeOfficeKitConfig().prototypeConfig;
+  homeOfficeKitConfig = config.getHomeOfficeKitConfig().homeOfficeKitConfig;
+
+  if (config.getConfig().isDevelopment && (homeOfficeKitConfig.logData===undefined || homeOfficeKitConfig.logData)) {
     if (!(req.url.startsWith("/plugin-assets/") || req.url.startsWith("/public/"))) {
       console.log(`${req.method}: ${req.url}`)
       console.log(req.session.data)

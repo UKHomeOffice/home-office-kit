@@ -3,11 +3,22 @@
     "/assets"
   ],
   "nunjucksPaths":[
-    "/layouts"
+    "/layouts",
+    "/macros"
   ],
   "nunjucksFilters": [
     "/filters/all.js",
     "/routes/all.js"
+  ],
+  "nunjucksMacros": [
+    {
+      "importFrom": "home-office-kit-legacy-accordion.njk",
+      "macroName": "homeOfficeKitLegacyAccordion"
+    },
+    {
+      "importFrom": "home-office-kit-pagination.njk",
+      "macroName": "homeOfficeKitPagination"
+    }
   ],
   "sass": [
     "/sass/all.scss"

@@ -11,217 +11,140 @@
 
 <p class="govuk-body">To use:</p>
 <ol class="govuk-list govuk-list--number">
-  <li>Change the results for each page in the table</li>
-  <li>Change the number of pages by adding or removing navigation items</li>
+  <li>Change items to change the results in the table</li>
+  <li>Change numberOfResultsPerPage to change the number of items on a page, and so the number of pages</li>
+  <li>Change beforeRepeatingContent and afterRepeatingContent to change it from a table of results</li>
 </ol>
 
-<div class="hods-pagination">
-  <div class="hods-pagination__content">
-    <table class="govuk-table">
+{{ homeOfficeKitPagination({
+  page: data.homeOfficeKitPage,
+  numberOfResultsPerPage: 10,
+  beforeRepeatingContent: '<table class="govuk-table">
       <thead class="govuk-table__head">
         <th scope="col", class="govuk-table__header">Reference</th>
         <th scope="col", class="govuk-table__header">Date created</th>
       </thead>
-      <tbody class="govuk-table__body">
-        {% if page == 1 %}
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">1713852981</td>
-            <td class="govuk-table__cell">19 Apr 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">3847593748</td>
-            <td class="govuk-table__cell">10 Apr 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">3739458398</td>
-            <td class="govuk-table__cell">19 Mar 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">3848405947</td>
-            <td class="govuk-table__cell">27 Feb 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">2318473928</td>
-            <td class="govuk-table__cell">26 Feb 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">2734839278</td>
-            <td class="govuk-table__cell">20 Feb 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">2823949573</td>
-            <td class="govuk-table__cell">15 Feb 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">2123483948</td>
-            <td class="govuk-table__cell">13 Feb 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">1238475934</td>
-            <td class="govuk-table__cell">10 Feb 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">1238493029</td>
-            <td class="govuk-table__cell">7 Feb 2023</td>
-          </tr>
-        {% elif page == 2 %}
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">1234759402</td>
-            <td class="govuk-table__cell">31 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">4389543854</td>
-            <td class="govuk-table__cell">31 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">4538953494</td>
-            <td class="govuk-table__cell">31 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">4875403395</td>
-            <td class="govuk-table__cell">30 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">3453453423</td>
-            <td class="govuk-table__cell">29 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">4543857409</td>
-            <td class="govuk-table__cell">28 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">3242359504</td>
-            <td class="govuk-table__cell">27 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">3242359505</td>
-            <td class="govuk-table__cell">27 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">2345394550</td>
-            <td class="govuk-table__cell">26 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">0987345234</td>
-            <td class="govuk-table__cell">25 Jan 2023</td>
-          </tr>
-        {% elif page == 3 %}
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">9867347483</td>
-            <td class="govuk-table__cell">23 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">2345345423</td>
-            <td class="govuk-table__cell">20 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">2349348832</td>
-            <td class="govuk-table__cell">15 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">2349827343</td>
-            <td class="govuk-table__cell">14 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">2348972483</td>
-            <td class="govuk-table__cell">13 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">4384537653</td>
-            <td class="govuk-table__cell">12 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">3453453493</td>
-            <td class="govuk-table__cell">12 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">1234234578</td>
-            <td class="govuk-table__cell">12 Jan 2023</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">1238748459</td>
-            <td class="govuk-table__cell">11 Jan 2023</td>
-          </tr>
-        {% endif %}
-      </tbody>
-    </table>
-  </div>
-  <nav
-    class="hods-pagination__navigation"
-    role="navigation"
-    aria-label="Pagination Navigation"
-  >
-    <div class="hods-pagination__navigation__summary">
-      Showing {{ numberOfResultsPerPage * (page - 1) + 1}} - {{ numberOfResultsPerPage * page if page < totalNumberOfPages else totalNumberOfResults }} of {{ totalNumberOfResults }} results
-    </div>
-    <ul
-      class="hods-pagination__navigation__list-items"
-    >
-      {% if page > 1 %}
-      <li class="hods-pagination__navigation__item">
-        <a 
-          class="govuk-link hods-pagination__navigation__link"
-          aria-label="Previous page, go to page {{ page - 1 }}"
-          href="?page={{ page - 1}}">
-          <span
-            aria-hidden="true" 
-            role="presentation"
-          >
-            «
-          </span>
-          Previous
-        </a>
-      </li>
-      {% endif %}
-      <li class="hods-pagination__navigation__item">
-        <a
-          {% if page == 1 %}aria-current="true"{% endif %}
-          aria-label="{% if page == 1 %}Current page, {% else %}Go to{% endif %} page 1"
-          class="govuk-link hods-pagination__navigation__link {% if page == 1 %}hods-pagination__navigation__link--current{% endif %}"
-          href="{% if page != 1 %}?page=1{% endif %}"
-        >
-          1
-        </a>
-      </li>
-      <li class="hods-pagination__navigation__item">
-        <a
-          {% if page == 2 %}aria-current="true"{% endif %}
-          class="govuk-link hods-pagination__navigation__link {% if page == 2 %}hods-pagination__navigation__link--current{% endif %}"
-          aria-label="{% if page == 2 %}Current page, {% else %}Go to{% endif %} page 2"
-          href="{% if page != 2 %}?page=2{% endif %}"
-        >
-          2
-        </a>
-      </li>
-      <li class="hods-pagination__navigation__item">
-        <a
-          {% if page == 3 %}aria-current="true"{% endif %}
-          class="govuk-link hods-pagination__navigation__link {% if page == 3 %}hods-pagination__navigation__link--current{% endif %}"
-          aria-label="{% if page == 3 %}Current page, {% else %}Go to{% endif %} page 3"
-          href="{% if page != 3 %}?page=3{% endif %}"
-        >
-          3
-        </a>
-      </li>
-      {% if page < totalNumberOfResults / numberOfResultsPerPage %}
-        <li class="hods-pagination__navigation__item">
-          <a
-            class="govuk-link hods-pagination__navigation__link"
-            aria-label="Next page, go to page {{ page | int + 1}}"
-            href="?page={{ page | int + 1}}"
-          >
-            Next
-            <span
-              aria-hidden="true"
-              role="presentation"
-            >
-              »
-            </span>
-          </a>
-        </li>
-      {% endif %}
-    </ul>
-  </nav>
-</div>
+      <tbody class="govuk-table__body">',
+  items: [
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">1713852981</td>
+      <td class="govuk-table__cell">19 Apr 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">3847593748</td>
+      <td class="govuk-table__cell">10 Apr 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">3739458398</td>
+      <td class="govuk-table__cell">19 Mar 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">3848405947</td>
+      <td class="govuk-table__cell">27 Feb 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">2318473928</td>
+      <td class="govuk-table__cell">26 Feb 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">2734839278</td>
+      <td class="govuk-table__cell">20 Feb 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">2823949573</td>
+      <td class="govuk-table__cell">15 Feb 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">2123483948</td>
+      <td class="govuk-table__cell">13 Feb 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">1238475934</td>
+      <td class="govuk-table__cell">10 Feb 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">1238493029</td>
+      <td class="govuk-table__cell">7 Feb 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">1234759402</td>
+      <td class="govuk-table__cell">31 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">4389543854</td>
+      <td class="govuk-table__cell">31 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">4538953494</td>
+      <td class="govuk-table__cell">31 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">4875403395</td>
+      <td class="govuk-table__cell">30 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">3453453423</td>
+      <td class="govuk-table__cell">29 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">4543857409</td>
+      <td class="govuk-table__cell">28 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">3242359504</td>
+      <td class="govuk-table__cell">27 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">3242359505</td>
+      <td class="govuk-table__cell">27 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">2345394550</td>
+      <td class="govuk-table__cell">26 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">0987345234</td>
+      <td class="govuk-table__cell">25 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">9867347483</td>
+      <td class="govuk-table__cell">23 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">2345345423</td>
+      <td class="govuk-table__cell">20 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">2349348832</td>
+      <td class="govuk-table__cell">15 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">2349827343</td>
+      <td class="govuk-table__cell">14 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">2348972483</td>
+      <td class="govuk-table__cell">13 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">4384537653</td>
+      <td class="govuk-table__cell">12 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">3453453493</td>
+      <td class="govuk-table__cell">12 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">1234234578</td>
+      <td class="govuk-table__cell">12 Jan 2023</td>
+    </tr>',
+    '<tr class="govuk-table__row">
+      <td class="govuk-table__cell">1238748459</td>
+      <td class="govuk-table__cell">11 Jan 2023</td>
+    </tr>'
+  ],
+  afterRepeatingContent: '</tbody>
+    </table>'
+})}}
 
 {% endblock %}

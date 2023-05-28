@@ -1,0 +1,56 @@
+{# Macro adapted from the govuk-frontend 4.6.0 accordion macro
+
+The govuk-frontend macro wasn't re-used due to the addition of the 
+govuk-accordion__icon span (which in frontend 3.14.0 was inserted by 
+javascript).
+
+The changes include:
+- adding the 'govuk-accordion--home-office-kit-legacy' to the main accordion 
+  div element
+- adding default text for 'hide-all-sections' to be Close all
+- adding default text for 'show-all-sections' to be Open all
+- adding <span class="govuk-accordion__icon></span> to the end of the 
+  section-header
+
+#}
+
+{% macro homeOfficeKitLegacyAccordion(params) %}
+  {% set id = params.id %}
+  {% set headingLevel = params.headingLevel if params.headingLevel else 2 %}
+  <div class="govuk-accordion govuk-accordion--home-office-kit-legacy {%- if params.classes %} {{ params.classes }}{% endif -%}" data-module="govuk-accordion" id="{{ id }}"
+    data-i18n.hide-all-sections={%- if params.hideAllSectionsText %}"{{ params.hideAllSectionsText | escape }}"{% else %}"Close all"{% endif %}
+    {%- if params.hideSectionText %} data-i18n.hide-section="{{ params.hideSectionText | escape }}"{% endif %}
+    {%- if params.hideSectionAriaLabelText %} data-i18n.hide-section-aria-label="{{ params.hideSectionAriaLabelText | escape }}"{% endif %}
+    data-i18n.show-all-sections={%- if params.showAllSectionsText %}"{{ params.showAllSectionsText | escape }}"{% else %}"Open all"{% endif %}
+    {%- if params.showSectionText %} data-i18n.show-section="{{ params.showSectionText | escape }}"{% endif %}
+    {%- if params.showSectionAriaLabelText %} data-i18n.show-section-aria-label="{{ params.showSectionAriaLabelText | escape }}"{% endif %}
+    {%- if params.rememberExpanded !== undefined %} data-remember-expanded="{{ params.rememberExpanded | escape }}"{% endif %}
+    {%- for attribute, value in params.attributes %} {{attribute}}="{{value}}"{% endfor %}>
+    {% for item in params.items %}
+      {% if item %}
+        <div class="govuk-accordion__section {%- if item.expanded %} govuk-accordion__section--expanded{% endif %}">
+          <div class="govuk-accordion__section-header">
+            <h{{ headingLevel }} class="govuk-accordion__section-heading">
+              <span class="govuk-accordion__section-button" id="{{ id }}-heading-{{ loop.index }}">
+                {{ item.heading.html | safe if item.heading.html else item.heading.text }}
+              </span>
+            </h{{ headingLevel }}>
+            {% if item.summary.html or item.summary.text %}
+              <div class="govuk-accordion__section-summary govuk-body" id="{{ id }}-summary-{{ loop.index }}">
+                {{ item.summary.html | safe if item.summary.html else item.summary.text }}
+              </div>
+            {% endif %}
+            <span class="govuk-accordion__icon"></span>
+          </div>
+          <div id="{{ id }}-content-{{ loop.index }}" class="govuk-accordion__section-content" aria-labelledby="{{ id }}-heading-{{ loop.index }}">
+            {% if item.content.html %}
+              {{ item.content.html | safe }}
+            {% elif item.content.text %}
+              <p class="govuk-body">{{ item.content.text }}</p>
+            {% endif %}
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endmacro %}
