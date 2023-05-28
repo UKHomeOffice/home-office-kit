@@ -13,6 +13,7 @@
   }
 }
 ```
+* added homeOfficeKitPagination macro to help with pagination
 
 ## 0.8.0
 

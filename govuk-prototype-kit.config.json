@@ -14,6 +14,10 @@
     {
       "importFrom": "home-office-kit-legacy-accordion.njk",
       "macroName": "homeOfficeKitLegacyAccordion"
+    },
+    {
+      "importFrom": "home-office-kit-pagination.njk",
+      "macroName": "homeOfficeKitPagination"
     }
   ],
   "sass": [

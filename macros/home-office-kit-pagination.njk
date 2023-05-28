@@ -1,0 +1,97 @@
+{# Macro for Home Office pagination
+
+Accepts as parameters:
+
+beforeRepeatingContent - HTML to be before the repeating part, such as table header row
+items                  - A list of HTML to be paginated
+afterRepeatingContent  - HTML to be after the repeating part, such as end table tags
+page                   - Should be data.homeOfficeKitPage
+numberOfResultsPerPage - The number of results shown on each page of the pagination
+
+The Home Office design system recommends pagination up to 5 pages.
+
+#}
+
+{% macro homeOfficeKitPagination(params) %}
+  {% set page = params.page or 1 %}
+  {% set numberOfResultsPerPage = params.numberOfResultsPerPage %}
+  {% set totalNumberOfResults = params.items.length %}
+  {% set totalNumberOfPages = (totalNumberOfResults // numberOfResultsPerPage) + ((totalNumberOfResults % numberOfResultsPerPage) > 0) %}
+
+  {% set firstItem = numberOfResultsPerPage * (page - 1) + 1 %}
+  {% set lastItem = numberOfResultsPerPage * page if page < totalNumberOfPages else totalNumberOfResults %}
+
+  <div class="hods-pagination">
+    <div class="hods-pagination__content">
+      {% if params.beforeRepeatingContent %}
+        {{ params.beforeRepeatingContent | safe }}
+      {% endif %}
+      {% for item in params.items %}
+        {% if loop.index >= firstItem and loop.index <= lastItem %}
+          {{ item | safe }}
+        {% endif %}
+      {% endfor %}
+      {% if params.afterRepeatingContent %}
+        {{ params.afterRepeatingContent | safe }}
+      {% endif %}
+    </div>
+    <nav
+      class="hods-pagination__navigation"
+      role="navigation"
+      aria-label="Pagination Navigation"
+    >
+      <div class="hods-pagination__navigation__summary">
+        Showing {{ firstItem }} - {{ lastItem }} of {{ totalNumberOfResults }} results
+      </div>
+      <ul
+        class="hods-pagination__navigation__list-items"
+      >
+        {% if page > 1 %}
+        <li class="hods-pagination__navigation__item">
+          <a 
+            class="govuk-link hods-pagination__navigation__link"
+            aria-label="Previous page, go to page {{ page - 1 }}"
+            href="?homeOfficeKitPage={{ page - 1}}">
+            <span
+              aria-hidden="true" 
+              role="presentation"
+            >
+              «
+            </span>
+            Previous
+          </a>
+        </li>
+        {% endif %}
+        {% for pageLink in range(1, totalNumberOfPages + 1) %}
+          <li class="hods-pagination__navigation__item">
+            <a
+              {% if page == 1 %}aria-current="true"{% endif %}
+              aria-label="{% if page == pageLink %}Current page, {% else %}Go to{% endif %} page {{pageLink}}"
+              class="govuk-link hods-pagination__navigation__link {% if page == pageLink %}hods-pagination__navigation__link--current{% endif %}"
+              href="{% if page != pageLink %}?homeOfficeKitPage={{pageLink}}{% endif %}"
+            >
+              {{ pageLink }}
+            </a>
+          </li>
+        {% endfor %}
+        {% if page < totalNumberOfPages %}
+          <li class="hods-pagination__navigation__item">
+            <a
+              class="govuk-link hods-pagination__navigation__link"
+              aria-label="Next page, go to page {{ page | int + 1}}"
+              href="?homeOfficeKitPage={{ page | int + 1}}"
+            >
+              Next
+              <span
+                aria-hidden="true"
+                role="presentation"
+              >
+                »
+              </span>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+{% endmacro %}
