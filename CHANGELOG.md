@@ -3,6 +3,16 @@
 ## Unreleased
 
 * added homeOfficeKitLegacyAccordion macro for the old GOV.UK frontend v3.14.0 accordion
+* now allows in the config.json to turn off data logging, by:
+```
+{
+  "pluginConfig": {
+    "home-office-kit": {
+      "logData": false
+    }
+  }
+}
+```
 
 ## 0.8.0
 
