@@ -14,7 +14,7 @@ router.all('*', function (req, res, next) {
   prototypeConfig = config.getHomeOfficeKitConfig().prototypeConfig;
   homeOfficeKitConfig = config.getHomeOfficeKitConfig().homeOfficeKitConfig;
 
-  if (config.getConfig().isDevelopment && (homeOfficeKitConfig.logData===undefined || homeOfficeKitConfig.logData)) {
+  if (prototypeConfig.isDevelopment && (homeOfficeKitConfig.logData===undefined || homeOfficeKitConfig.logData)) {
     if (!(req.url.startsWith("/plugin-assets/") || req.url.startsWith("/public/"))) {
       console.log(`${req.method}: ${req.url}`)
       console.log(req.session.data)
