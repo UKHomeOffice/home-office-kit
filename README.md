@@ -27,7 +27,33 @@ You can use the HTML for these Home Office design system components:
 
 There are some useful routes in the prototype:
 
-* logging data from the prototype
+### Log prototype data
+To log prototype data add to the `config.json` file:
+
+```
+{
+  "pluginConfig": {
+    "home-office-kit": {
+      logData: true
+    }
+  }
+}
+```
+
+If you need to ignore certain URLs then change this to:
+
+```
+{
+  "pluginConfig": {
+    "home-office-kit": {
+      logData: {
+        ignoreUrlsStartingWith: ["/plugin-assets/", "/other-url-to-ignore"]
+      }
+    }
+  }
+}
+```
+
 * redirecting radio buttons
 * getting the current date
 

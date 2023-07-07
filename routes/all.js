@@ -9,13 +9,20 @@ const config = require('../lib/config')
 
 // When in development print the URL link and the data stored in the prototype into terminal.
 // This is not logged in Heroku or anywhere where the prototype is published.
-// If this is not desired, remove or comment out this function.
+// To add this functionality, set logData to True in config.json
+
 router.all('*', function (req, res, next) {
   prototypeConfig = config.getHomeOfficeKitConfig().prototypeConfig;
   homeOfficeKitConfig = config.getHomeOfficeKitConfig().homeOfficeKitConfig;
 
-  if (prototypeConfig.isDevelopment && (homeOfficeKitConfig.logData===undefined || homeOfficeKitConfig.logData)) {
-    if (!(req.url.startsWith("/plugin-assets/") || req.url.startsWith("/public/"))) {
+  if (prototypeConfig.isDevelopment && homeOfficeKitConfig.logData) {
+    logData = true
+    for (urlStart in homeOfficeKitConfig.logData.ignoreUrlsStartingWith) {
+      if (req.url.startsWith(urlStart)) {
+        logData = false
+      }
+    }
+    if (logData) {
       console.log(`${req.method}: ${req.url}`)
       console.log(req.session.data)
     }
