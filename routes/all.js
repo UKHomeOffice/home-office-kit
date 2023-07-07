@@ -17,7 +17,7 @@ router.all('*', function (req, res, next) {
 
   if (prototypeConfig.isDevelopment && homeOfficeKitConfig.logData) {
     logData = true
-    for (urlStart in homeOfficeKitConfig.logData.ignoreUrlsStartingWith) {
+    for (urlStart of homeOfficeKitConfig.logData.ignoreUrlsStartingWith) {
       if (req.url.startsWith(urlStart)) {
         logData = false
       }
