@@ -34,7 +34,7 @@ To log prototype data add to the `config.json` file:
 {
   "pluginConfig": {
     "home-office-kit": {
-      logData: true
+      "logData": true
     }
   }
 }
@@ -46,7 +46,7 @@ If you need to ignore certain URLs then change this to:
 {
   "pluginConfig": {
     "home-office-kit": {
-      logData: {
+      "logData": {
         ignoreUrlsStartingWith: ["/plugin-assets/", "/other-url-to-ignore"]
       }
     }
