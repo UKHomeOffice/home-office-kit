@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.0.0
 
 * breaking change - logging prototype data is off by default, added ability to ignore URLs that start with particular strings
 
