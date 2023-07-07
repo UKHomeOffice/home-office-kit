@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+* breaking change - logging prototype data is off by default, added ability to ignore URLs that start with particular strings
+
 ## 0.9.1
 
 * fix to fatal issue in routes file
