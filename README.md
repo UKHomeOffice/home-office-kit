@@ -88,15 +88,15 @@ or
 
 Sometimes you want to show a date to a user, and for usability testing keeping the dates relevant can be difficult. This lets you show dates relative to today:
 
-``` {{ homeOfficeKit.today.day }}``` shows the day part of today
-``` {{ homeOfficeKit.today.month }}``` shows the month part of today
-``` {{ homeOfficeKit.today.year }}``` show the year part of today
+- ` {{ homeOfficeKit.today.day }}` shows the day part of today
+- ` {{ homeOfficeKit.today.month }}` shows the month part of today
+- ` {{ homeOfficeKit.today.year }}` show the year part of today
 
-``` {{ date() }} ``` shows todays date in the format 5 May 2022
-``` {{ date({day: 'numeric', month: 'numeric', year: 'numeric'}) }} ``` is todays date in the format 05/05/2022
-``` {{ date({day: 'numeric'}) }} ``` shows the just the day of date 5
-``` {{ date({day: 'numeric'}, {'day': -1}) }} ``` shows just the date of yesterday
-``` {{ date({weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}) }} ``` shows todays date in the format Tuesday, 5 July 2022.
+- ` {{ date() }} ` shows todays date in the format 5 May 2022
+- ` {{ date({day: 'numeric', month: 'numeric', year: 'numeric'}) }} ` is todays date in the format 05/05/2022
+- ` {{ date({day: 'numeric'}) }} ` shows the just the day of date 5
+- ` {{ date({day: 'numeric'}, {'day': -1}) }} ` shows just the date of yesterday
+- ` {{ date({weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}) }} ` shows todays date in the format Tuesday, 5 July 2022.
 
 ## Filters
 
