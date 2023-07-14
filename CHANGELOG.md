@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2
+
+* fixes to allow logData to just take the value 'true'
+* updated read me for logging data
+
 ## 1.0.1
 
 * fixes to the config and logging of routes
