@@ -46,12 +46,12 @@ router.get('*', function (req, res, next) {
 
   // Examples of date
   //
-  // {{ date() }} shows todays date in the format 5 May 2022
-  // {{ date({day: 'numeric', month: 'numeric', year: 'numeric'}) }} is todays date
+  // {{ homeOfficeKit.date() }} shows todays date in the format 5 May 2022
+  // {{ homeOfficeKit.date({day: 'numeric', month: 'numeric', year: 'numeric'}) }} is todays date
   //    in the format 05/05/2022
-  // {{ date({day: 'numeric'}) }} shows the just the date of date 5
-  // {{ date({day: 'numeric'}, {'day': -1}) }} shows just the date of yesterday
-  // {{ date({weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}) }} shows todays date in the format Tuesday, 5 July 2022.
+  // {{ homeOfficeKit.date({day: 'numeric'}) }} shows the just the date of date 5
+  // {{ homeOfficeKit.date({day: 'numeric'}, {'day': -1}) }} shows just the date of yesterday
+  // {{ homeOfficeKit.date({weekday: 'long', day: 'numeric', month: 'long', year: 'numeric'}) }} shows todays date in the format Tuesday, 5 July 2022.
   res.locals.homeOfficeKit.date = function (
     format = {day: 'numeric', month: 'long', year: 'numeric'},
     diff = {'year': 0, 'month': 0, 'day': 0})
@@ -74,9 +74,9 @@ router.get('*', function (req, res, next) {
   //
   // Useful for pre-populating date fields
   //
-  // {{ today.day }} shows just todays day
-  // {{ today.month }} shows just todays month as a number
-  // {{ today.year }} shows just todays year as a number
+  // {{ homeOfficeKit.today.day }} shows just todays day
+  // {{ homeOfficeKit.today.month }} shows just todays month as a number
+  // {{ homeOfficeKit.today.year }} shows just todays year as a number
   res.locals.homeOfficeKit.today = {"day": res.locals.homeOfficeKit.date({'day': 'numeric'}),
           "month": res.locals.homeOfficeKit.date({'month': 'numeric'}),
           "year": res.locals.homeOfficeKit.date({'year': 'numeric'})}
@@ -86,9 +86,9 @@ router.get('*', function (req, res, next) {
   //
   // Useful for pre-populating date fields
   //
-  // {{ yesterday.day }} shows just todays day
-  // {{ yesterday.month }} shows just todays month as a number
-  // {{ yesterday.year }} shows just todays year as a number
+  // {{ homeOfficeKit.yesterday.day }} shows just todays day
+  // {{ homeOfficeKit.yesterday.month }} shows just todays month as a number
+  // {{ homeOfficeKit.yesterday.year }} shows just todays year as a number
   res.locals.homeOfficeKit.yesterday = {"day": res.locals.homeOfficeKit.date({'day': 'numeric'}, diff = {'day': -1}),
             "month": res.locals.homeOfficeKit.date({'month': 'numeric'}, diff = {'day': -1}),
             "year": res.locals.homeOfficeKit.date({'year': 'numeric'}, diff = {'day': -1})}
@@ -98,23 +98,23 @@ router.get('*', function (req, res, next) {
   })
 
 // Radio button redirect
-router.post('*', function(req, res, next) {
+router.get('*', function(req, res, next) {
   // This function redirects if any part of the data contains '~home-office-kit-redirect-to~'
 
   // This is usually used for radio buttons, by setting the value to "yes~home-office-kit-redirect-to~/page/to/redirect/to"
   // in the format '<value>~<redirect URL>'
-  if (req.body) {
-    const obj = Object.keys(req.body).length ? req.body : req.query;
-    for (const k in obj) {
-      const v = obj[k];
-      if ((typeof v === 'string') && (v.includes('~home-office-kit-redirect-to~'))) {
-        const parts = v.split('~home-office-kit-redirect-to~');
-        req.session.data[k] = parts[0];
-        const href = parts[1];
-        console.log(`Found '~home-office-kit-redirect-to~': redirecting to ${href}`)
-        return res.redirect(href);
-      }
+  for (const k in req.session.data) {
+    const v = req.session.data[k];
+    console.log(v.includes('~home-office-kit-redirect-to~'))
+    if ((typeof v === 'string') && (v.includes('~home-office-kit-redirect-to~'))) {
+      const parts = v.split('~home-office-kit-redirect-to~');
+      console.log(parts)
+      req.session.data[k] = parts[0];
+      const href = parts[1];
+      console.log(`Found '~home-office-kit-redirect-to~': redirecting to ${href}`)
+      return res.redirect(href);
     }
   }
+
   next();
 })
