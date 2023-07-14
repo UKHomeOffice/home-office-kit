@@ -2,6 +2,12 @@
 
 ## 1.0.2
 
+* added more examples to the read me for filters and routes
+* restructed read me
+* fixed radio button redirects
+
+## 1.0.2
+
 * fixes to allow logData to just take the value 'true'
 * updated read me for logging data
 
