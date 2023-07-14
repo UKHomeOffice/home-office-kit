@@ -28,30 +28,28 @@ You can use the HTML for these Home Office design system components:
 There are some useful routes in the prototype:
 
 ### Log prototype data
-To log prototype data add to the `config.json` file:
+To log prototype data add to `config.json`:
 
 ```
-{
   "pluginConfig": {
     "home-office-kit": {
       "logData": true
     }
   }
-}
 ```
+
+This should be inside the most outer `{` `}`. If there's a line before this one (say `serviceName`), you'll need to add a comma to the end.
 
 If you need to ignore certain URLs then change this to:
 
 ```
-{
   "pluginConfig": {
     "home-office-kit": {
       "logData": {
-        ignoreUrlsStartingWith: ["/plugin-assets/", "/other-url-to-ignore"]
+        "ignoreUrlsStartingWith": ["/plugin-assets/", "/other-url-to-ignore"]
       }
     }
   }
-}
 ```
 
 * redirecting radio buttons
