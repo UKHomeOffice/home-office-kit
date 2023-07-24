@@ -105,10 +105,8 @@ router.get('*', function(req, res, next) {
   // in the format '<value>~<redirect URL>'
   for (const k in req.session.data) {
     const v = req.session.data[k];
-    console.log(v.includes('~home-office-kit-redirect-to~'))
     if ((typeof v === 'string') && (v.includes('~home-office-kit-redirect-to~'))) {
       const parts = v.split('~home-office-kit-redirect-to~');
-      console.log(parts)
       req.session.data[k] = parts[0];
       const href = parts[1];
       console.log(`Found '~home-office-kit-redirect-to~': redirecting to ${href}`)

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+* removed log lines from Home Office kit radio redirect, which fixed an error caused by structured data
+
 ## 1.0.2
 
 * added more examples to the read me for filters and routes
