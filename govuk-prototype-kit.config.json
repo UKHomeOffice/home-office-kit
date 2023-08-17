@@ -1,4 +1,12 @@
 {
+  "meta": {
+    "description": "Plugin for the GOV.UK prototype kit to provide Home Office styles",
+    "urls": {
+      "documentation": "https://github.com/UKHomeOffice/home-office-kit#readme",
+      "releaseNotes": "https://github.com/UKHomeOffice/home-office-kit/releases/tag/v{{version}}",
+      "versionHistory": "https://github.com/UKHomeOffice/home-office-kit/releases"
+    }
+  },
   "assets": [
     "/assets"
   ],

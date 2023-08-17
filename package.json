@@ -5,6 +5,9 @@
   "author": "Home Office Design System",
   "license": "MIT",
   "sass": "sass/all.scss",
+  "scripts": {
+    "test": "npx govuk-prototype-kit@latest validate-plugin"
+  },
   "repository": {
     "type": "git",
     "url": "https://https://github.com/UKHomeOffice/home-office-kit"
