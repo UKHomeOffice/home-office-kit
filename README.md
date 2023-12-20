@@ -58,7 +58,7 @@ If you need to ignore certain URLs then change this to:
   "pluginConfig": {
     "home-office-kit": {
       "logData": {
-        "ignoreUrlsStartingWith": ["/plugin-assets/", "/other-url-to-ignore"]
+        "ignoreUrlsStartingWith": ["/plugin-assets/", "/public/", "/manage-prototype/", "/plugin-routes/", "/other-url-to-ignore"]
       }
     }
   }
