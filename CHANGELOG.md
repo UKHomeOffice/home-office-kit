@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+* added additional log lines for HTTP requests to ignore by default
+
+## 1.0.4
+
+* further fixes to the Home Office kit radio redirect
+
 ## 1.0.3
 
 * removed log lines from Home Office kit radio redirect, which fixed an error caused by structured data
