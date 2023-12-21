@@ -27,7 +27,7 @@ You can use the HTML for these Home Office design system components:
 
 ### Header, footer and page background
 To change your prototype to by default use the Home Office styling:
-1. In `app/views/layouts/main.html` change `{% extends "govuk-prototype-kit/layouts/main.html %}` to `{% extends "home-office-kit-layout.html" %}`
+1. In `app/views/layouts/main.html` change `{% extends "..." %}` to `{% extends "home-office-kit-layout.html" %}`
 
 ### Font
 
