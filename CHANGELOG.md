@@ -1,8 +1,9 @@
 # Changelog
 
-## Unreleased
+## 1.0.5
 
 * added additional log lines for HTTP requests to ignore by default
+* generalised ReadMe for extends line
 
 ## 1.0.4
 
