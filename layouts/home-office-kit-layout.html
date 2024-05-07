@@ -94,18 +94,23 @@
   </header>
 {% endblock %}
 
-{% block beforeContent %} 
-
-  {% block backLink %}
-
-  {% endblock %}
-
-{% endblock %}
-
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
 
-{% block content %}
+{% block main %}
+  <div class="hods-page__body">
+    <div class="hods-page__container hods-width-container {{ containerClasses }}">
+      {% block beforeContent %}
+        {% block backLink %}
 
+        {% endblock %}
+      {% endblock %}
+      <main class="govuk-main-wrapper {{ mainClasses }}" id="main-content" role="main"{% if mainLang %} lang="{{ mainLang }}"{% endif %}>
+        {% block content %}
+        
+        {% endblock %}
+      </main>
+    </div>
+  </div>
 {% endblock %}
 
 {% block footer %}
