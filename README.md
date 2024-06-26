@@ -186,6 +186,8 @@ data['numberRooves'] | pluralise('roof', 'rooves')
 
 ## Contributing
 
+Read the [GOV.UK prototype kit plugin guidance](https://prototype-kit.service.gov.uk/docs/create-plugin).
+
 Raise issues and pull requests to:
 * add new filters, layouts and macros
 * update the scss to match the Home Office design system
