@@ -1,5 +1,15 @@
 # Changelog
 
+## Unpublished
+
+* add templates and contribution guidance to README
+* add new show password template for GOV.UK Frontend v5.3.0 or later
+
+## 1.1.0
+
+* status message styles on button wrapping
+* secondary button style when on the Home Office design system background*
+
 ## 1.0.5
 
 * added additional log lines for HTTP requests to ignore by default
