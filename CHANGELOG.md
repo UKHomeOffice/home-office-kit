@@ -1,5 +1,10 @@
 # Changelog
 
+## Unpublished
+
+* add templates and contribution guidance to README
+* add new show password template for GOV.UK Frontend v5.3.0 or later
+
 ## 1.1.0
 
 * status message styles on button wrapping
