@@ -9,7 +9,7 @@ $button-shadow-size: $govuk-border-width-form-element;
 .hods-page,
 #story-root,
 #root,
-body,
+.hods-page body, /// Updated to only change body styling if within a .hods-page - this is a change from the Home Office design system (a possible bug fix?)
 html {
   background-color: #F5F5F5 !important;
   color: #0b0c0c;
