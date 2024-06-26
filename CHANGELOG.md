@@ -4,6 +4,7 @@
 
 * add templates and contribution guidance to README
 * add new show password template for GOV.UK Frontend v5.3.0 or later
+* updated page styling to prevent inccorectly changing to the grey background
 
 ## 1.1.0
 
