@@ -1,6 +1,6 @@
 # Changelog
 
-## Unpublished
+## 1.2.0
 
 * add templates and contribution guidance to README
 * add new show password template for GOV.UK Frontend v5.3.0 or later
